@@ -1,5 +1,5 @@
 'use client'
-   
+
 import { useState, useEffect, Suspense } from 'react'
 import { supabase, Patient, Unit } from '@/lib/supabase'
 import { useRouter, useSearchParams } from 'next/navigation'
@@ -443,10 +443,11 @@ function NewReservationForm() {
     </div>
   )
 }
+
 export default function NewReservation() {
-     return (
-       <Suspense fallback={<div className="p-6 text-center">読み込み中...</div>}>
-         <NewReservationForm />
-       </Suspense>
-     )
-   }
+  return (
+    <Suspense fallback={<div className="p-6 text-center">読み込み中...</div>}>
+      <NewReservationForm />
+    </Suspense>
+  )
+}
