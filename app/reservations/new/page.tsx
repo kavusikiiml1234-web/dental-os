@@ -1,12 +1,12 @@
 'use client'
-
-import { useState, useEffect } from 'react'
+   
+import { useState, useEffect, Suspense } from 'react'
 import { supabase, Patient, Unit } from '@/lib/supabase'
 import { useRouter, useSearchParams } from 'next/navigation'
 import Link from 'next/link'
 import { format } from 'date-fns'
 
-export default function NewReservation() {
+function NewReservationForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
   
@@ -443,3 +443,10 @@ export default function NewReservation() {
     </div>
   )
 }
+export default function NewReservation() {
+     return (
+       <Suspense fallback={<div className="p-6 text-center">読み込み中...</div>}>
+         <NewReservationForm />
+       </Suspense>
+     )
+   }
